@@ -1,0 +1,91 @@
+<!-- index.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <meta name="title" content="E-Mail/SMS Spam Classification">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Font:  Ubuntu Medium-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <!-- Copy Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- JS -->
+    <script src="../static/script/script.js"></script>
+</head>
+<body>
+    <section id="header">
+        <div class="title">
+            <h2><strong>E-Mail</strong>/SMS Classification</h2>
+        </div>
+    </section>
+    <section id="hero">
+        <div class="form">
+            <form action="{{ url_for('predict') }}" method="post">
+                <textarea name="text" id="text" rows="4" cols="50" required="required" placeholder="Enter E-Mail or SMS message"></textarea><br>
+                <div class="inp"><input type="submit" value="Predict"></div>
+            </form>
+        </div>
+        <div class="prediction">
+            <h2 class="Not-Spam">{{ prediction1 }}</h2>
+            <h2 class="Spam">{{ prediction2 }}</h2>
+        </div>
+    </section>
+    <hr class="division">
+    <section id="about">
+        <div><h2>Try <strong>Samples</strong></h2></div>
+        <div class="cardholder">
+            <div class="card">
+                <div class="card-head spam"><p>SPAM</p></div>
+                <hr>
+                <div class="card-content"><p>Congratulations! You've won a free cruise vacation! Click the link to claim your prize now! https://sample.com</p></div>
+                <span class="material-symbols-outlined copy" onclick="copyToClipboard(event)">content_copy</span>
+            </div>
+            <div class="card">
+                <div class="card-head spam"><p>SPAM</p></div>
+                <hr>
+                <div class="card-content"><p>URGENT: Your bank account has been compromised. Please provide your login details to secure your account.</p></div>
+                <span class="material-symbols-outlined copy" onclick="copyToClipboard(event)">content_copy</span>
+            </div>
+            <div class="card">
+                <div class="card-head spam"><p>SPAM</p></div>
+                <hr>
+                <div class="card-content"><p>Dear 82953971XX
+
+                    Prize pool - Rs. 3,00,00,000 (3 Crore).
+                    
+                    50,000 CashBack + Rs. 8850 FREE Bonus on Junglee Rummy.
+                    
+                    Click - m1g.in/K29F-1EE71B6FC</p></div>
+                <span class="material-symbols-outlined copy" onclick="copyToClipboard(event)">content_copy</span>
+            </div>
+        </div>
+        <div class="cardholder">
+            <div class="card">
+                <div class="card-head ham"><p>HAM</p></div>
+                <hr>
+                <div class="card-content"><p>Hi Hustler, your order #12345 has been confirmed. It will be shipped to your address shortly. Thank you for shopping with us!</p></div>
+                <span class="material-symbols-outlined copy" onclick="copyToClipboard(event)">content_copy</span>
+            </div>
+            <div class="card">
+                <div class="card-head ham"><p>HAM</p></div>
+                <hr>
+                <div class="card-content"><p>Reminder: Your appointment with Dr. Smith is scheduled for tomorrow at 2:00 PM. Please confirm or reschedule.</p></div>
+                <span class="material-symbols-outlined copy" onclick="copyToClipboard(event)">content_copy</span>
+            </div>
+            <div class="card">
+                <div class="card-head ham"><p>HAM</p></div>
+                <hr>
+                <div class="card-content"><p>Dear Customer, You would miss being a Lenskart Gold Max Member. Renew your membership & keep enjoying a host of benefits.</p></div>
+                <span class="material-symbols-outlined copy" onclick="copyToClipboard(event)">content_copy</span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
